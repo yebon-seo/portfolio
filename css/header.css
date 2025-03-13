@@ -83,22 +83,62 @@ header > .container > .search-container > ul img {
     display: block;
     margin: auto;
 }
-
-
-
+header >.container > .gnb {
+    position: relative;
+}
 header >.container > .gnb > ul {
     display: flex;
     gap: 36px;
     align-items: center;
 }
-header >.container > .gnb span {
+header >.container > .gnb > ul >.menu {
+    cursor: pointer;
+}
+
+/*메가메뉴 css*/
+.menu > .mega {
+    width: 1190px;
+    height: 194px;
+    padding: 40px 95px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 70px;
+    gap: 80px;
+    margin: auto;
+    background-color: #ffffff;
+    outline: 1px solid #ccc; /*위에는 뺄 수 없나영?*/
+    border-radius: 0 0 20px 20px;
+    /* border-top: none; */
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 70px;
+    z-index: 10;
+}
+.menu > .mega > .sub h2{
+    font-weight: 700;
     color: #0283df;
+    font-size: 18px;
+}
+.menu > .mega > .sub > hr {
+    border: 1px solid #0283df;
+    border-radius: 20px;
+    width: 280px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.menu > .mega > .sub > ul {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.menu > .mega > .sub a{
+    color: #333;
     font-size: 16px;
-    font-weight: 600; 
+    display: block;
+    width: 120px;
+}
+/*hover시 이벤트*/
+.menu > .mega > .sub a:hover{
+    font-weight: 800;
 }
 header > .container > .gnb > ul > li > a,
 header > .container > .gnb .right-tab > li > a {
@@ -109,12 +149,18 @@ header > .container > .gnb .right-tab > li > a {
     font-weight: 600; 
 }
 header > .container > .gnb li img {
-    width: 39px;
-    height: 39px;
-    padding-right: 10px;
+    width: 33px;
+    height: 25px;
+    object-fit: cover;
+    display: block;
 }
 header > .container > .gnb > ul .right-tab {
     margin-left: auto; /*오른쪽 정렬*/
     display: flex;
     gap:36px
+}
+
+.mega.open {
+    display: block;
+    opacity: 1;
 }

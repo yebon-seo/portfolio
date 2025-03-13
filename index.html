@@ -72,17 +72,20 @@
 
   <!--탑버튼-->
   <div class="top-btn">
-    <a href="#header"><img src="images/top-btn.png" alt=""></a>
+    <a href="#top-btn"><img src="images/top-btn.png" alt=""></a>
   </div>
 
+
+
+
   <!-- header -->
-  <div class="notice">
+  <div class="notice" id="top-btn">
     <article class="top">
       <p>공지사항</p>
     </article>
   </div>
 
-  <header id="header">
+  <header>
     <div class="container">
       <div class="search-container">
         <a href="#"><img src="images/아고다.svg" alt="logo" class="logo"></a>
@@ -97,11 +100,42 @@
 
       <div class="gnb">
         <ul>
-          <li class="menu"><span><img src="images/menu.png" alt="menu">전체메뉴</span></li>
+          <li class="menu" onclick="toggleMenu()"><img src="images/menu.svg" alt="menu">
+            <div class="mega">
+              <div class="sub">
+                <h2>크루즈</h2>
+                <hr>
+                <ul>
+                  <li><a href="#">아시아</a></li>
+                  <li><a href="#">유럽</a></li>
+                  <li><a href="#">미주</a></li>
+                  <li><a href="#">대양주</a></li>
+                </ul>
+              </div>
+              <div class="sub">
+                <h2>차량 / 골프 서비스</h2>
+                <hr>
+                <ul>
+                  <li><a href="#">공항이동 서비스</a></li>
+                  <li><a href="#">골프 서비스</a></li>
+                  <li><a href="#">렌트카 서비스</a></li>
+                </ul>
+              </div>
+              <div class="sub">
+                <h2>아고다 마일리지</h2>
+                <hr>
+                <ul>
+                  <li><a href="#">마일리지 샵</a></li>
+                  <li><a href="#">아고다 멤버스</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
           <li><a href="#">해외여행</a></li>
           <li><a href="#">국내여행</a></li>
           <li><a href="#">항공</a></li>
           <li><a href="#">호텔</a></li>
+          <li><a href="#">항공+호텔</a></li>
           <li><a href="#">투어패스</a></li>
           <li><a href="#">공항이동서비스</a></li>
 
@@ -110,6 +144,7 @@
             <li><a href="#">이벤트</a></li>
             <li><a href="#">고객센터</a></li>
           </ul>
+        </ul>
       </div>
     </div>
   </header>
@@ -426,22 +461,30 @@
   <script>
     /*로그인 모달창*/
     const login = document.querySelector("#login");
-    function popup(){
+    function popup() {
       login.style.display = "block"
     }
-    function pClose(){
+    function pClose() {
       login.style.display = "none"
     }
 
     /*top-btn*/
     const topBtn = document.querySelector(".top-btn");
-    window.addEventListener("scroll",function(){
+    window.addEventListener("scroll", function () {
       if (window.scrollY > 300) {
         topBtn.style.display = "block";
+        topBtn.style.opacity = "1";
       } else {
-        topBtn.style.display = "none"
+        topBtn.style.opacity = "0"
+        // topBtn.style.display = "none";
       }
     })
+
+    /* 전체메뉴*/
+    const mega = document.querySelector(".mega");
+      function toggleMenu(){
+        mega.classList.toggle("open");
+      }
   </script>
 </body>
 
