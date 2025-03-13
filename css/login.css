@@ -9,7 +9,7 @@
 #login > .container{
   width: 600px;
   max-height: 90vh; /*화면을 넘지 않도록 제한*/
-  padding: 50px;
+  padding: 0 50px 50px 50px ;
   background-color: #fff;
   border-radius: 5px;
   position: absolute;
@@ -19,9 +19,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#login > .container > section > .close > button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 40px;
+  color: #333;
+  position: absolute;
+  top: 10px;right: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
 #login > .container > section > .logo {
   display: block;
   text-align: center;
+  padding-top: 50px;
 }
 #login > .container > section > .logo img {
   object-fit: cover;

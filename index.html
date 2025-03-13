@@ -11,13 +11,16 @@
   <link rel="stylesheet" href="css/footer.css">
 </head>
 
-<!-- header -->
+
 
 <body>
   <!--로그인 모달창-->
   <div id="login">
     <article class="container">
       <section>
+        <div class="close">
+          <button onclick="pClose()">&times;</button>
+        </div>
         <div class="logo">
           <img src="images/아고다.svg" alt="로고">
           <h2>로그인</h2>
@@ -65,13 +68,21 @@
     </article>
   </div>
 
+
+
+  <!--탑버튼-->
+  <div class="top-btn">
+    <a href="#header"><img src="images/top-btn.png" alt=""></a>
+  </div>
+
+  <!-- header -->
   <div class="notice">
     <article class="top">
       <p>공지사항</p>
     </article>
   </div>
 
-  <header>
+  <header id="header">
     <div class="container">
       <div class="search-container">
         <a href="#"><img src="images/아고다.svg" alt="logo" class="logo"></a>
@@ -80,14 +91,13 @@
           <li><a href="#"><img src="images/mynaui_bell.svg" alt="알림">알림</a></li>
           <li><a href="#"><img src="images/마이페이지.svg" alt="마이페이지">마이페이지</a></li>
           <li><a href="#"><img src="images/lucide_calendar.svg" alt="예약내역">예약내역</a></li>
-          <li><a href="#login"><img src="images/Frame 33.svg" alt="로그인">로그인</a></li>
+          <li><a href="#" onclick="popup()"><img src="images/Frame 33.svg" alt="로그인">로그인</a></li>
         </ul>
       </div>
 
       <div class="gnb">
         <ul>
-          <li><a href="#"><img src="images/menu.png" alt="menu"></a></li>
-          <li><a href="#">전체메뉴</a></li>
+          <li class="menu"><span><img src="images/menu.png" alt="menu">전체메뉴</span></li>
           <li><a href="#">해외여행</a></li>
           <li><a href="#">국내여행</a></li>
           <li><a href="#">항공</a></li>
@@ -405,6 +415,34 @@
   </div>
 
 
+
+
+
+
+
+
+
+
+  <script>
+    /*로그인 모달창*/
+    const login = document.querySelector("#login");
+    function popup(){
+      login.style.display = "block"
+    }
+    function pClose(){
+      login.style.display = "none"
+    }
+
+    /*top-btn*/
+    const topBtn = document.querySelector(".top-btn");
+    window.addEventListener("scroll",function(){
+      if (window.scrollY > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none"
+      }
+    })
+  </script>
 </body>
 
 </html>

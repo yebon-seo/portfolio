@@ -83,10 +83,22 @@ header > .container > .search-container > ul img {
     display: block;
     margin: auto;
 }
+
+
+
 header >.container > .gnb > ul {
     display: flex;
     gap: 36px;
     align-items: center;
+}
+header >.container > .gnb span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 70px;
+    color: #0283df;
+    font-size: 16px;
+    font-weight: 600; 
 }
 header > .container > .gnb > ul > li > a,
 header > .container > .gnb .right-tab > li > a {
@@ -96,10 +108,10 @@ header > .container > .gnb .right-tab > li > a {
     font-size: 16px;
     font-weight: 600; 
 }
-header > .container > .gnb li > a > img {
+header > .container > .gnb li img {
     width: 39px;
     height: 39px;
-    display: block;
+    padding-right: 10px;
 }
 header > .container > .gnb > ul .right-tab {
     margin-left: auto; /*오른쪽 정렬*/
