@@ -10,7 +10,7 @@
 
 main{
   min-width: 1280px;
-  background: url(../images/메인배경.svg) no-repeat center/cover;
+  background: url(../images/main.svg) no-repeat center/cover;
 }
 main > .container {
   width: 1280px;
@@ -66,7 +66,7 @@ main > .container #banner h1 {
   bottom: -129px;
 }
 #select-box .hotel {
-  height: 60%;
+  height: 70%;
   display: flex;
   align-items: center;
 }
@@ -86,7 +86,8 @@ main > .container #banner h1 {
   justify-content: center;
   margin: 0 37px;
 }
-#select-box .hotel .select div:nth-of-type(1) input{
+
+#select-box .hotel .select div.country input{
   width: 265px;
   height: 126px;
   text-align: center;
@@ -94,21 +95,34 @@ main > .container #banner h1 {
   border: 1px solid #ccc;
   outline: none;
 }
-#select-box .hotel .select div:nth-of-type(1) input::placeholder{
+#select-box .hotel .select div.country input::placeholder{
   color: #bbb;
   font-weight: bold;
 }
-#select-box .hotel .select div:nth-of-type(2) {
+#select-box .hotel .select .check-con {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 22px;
 }
-#select-box .hotel .select div:nth-of-type(2) input { 
+#select-box .hotel .select .check-con .check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   width: 297px;
   height: 52px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
   outline: none;
+  padding: 20px;
+  color: #bbb;
+} 
+#select-box .hotel .select .check-con .check > span {
+  width: 100px;
+}
+#select-box .hotel .select div:nth-of-type(2) .check input{
+  border: none;
+  color: #555;
 }
 #select-box .hotel .select div:nth-of-type(3),
 #select-box .hotel .select div:nth-of-type(4){
@@ -146,17 +160,17 @@ main > .container #banner h1 {
 
 }
 #select-box .recent {
-  height: 40%;
+  height: 30%;
 }
 
 /*hover시 이벤트*/
-#select-box .hotel .select div:nth-of-type(1):hover,
+/* #select-box .hotel .select div:nth-of-type(1):hover,
 #select-box .hotel .select div:nth-of-type(2) input:hover,
 #select-box .hotel .select div:nth-of-type(3):hover,
 #select-box .hotel .select div:nth-of-type(4):hover {
   outline: 2px solid #0283dfe9;
   border-radius: 10px;
-}
+} */
 
 /* 추천호텔 */
 #card-box {
@@ -369,7 +383,7 @@ main > .container #banner h1 {
   min-width: 1280px;
   height: 300px;
   margin-top: 140px;
-  background: url(../images/광고배너.png) center/cover;
+  background: url(../images/banner.png) center/cover;
 }
 #ad-banner > .wrap {
   width: 1280px;
