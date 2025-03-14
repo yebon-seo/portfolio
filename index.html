@@ -27,18 +27,28 @@
           <p>해당 페이지를 이용하시려면 본인 확인을 위해 로그인 해 주시기 바랍니다.</p>
         </div>
         <ul>
-          <li class="active"><a href="#">이메일</a></li>
-          <li><a href="#">휴대전화</a></li>
+          <li><a class="active tab" href="#">이메일</a></li>
+          <li><a class="tab" href="#">휴대전화</a></li>
         </ul>
+        <div class="tab-content">
+          <form style="display: block;">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="이메일 입력">
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw1" name="pw1" placeholder="비밀번호 입력">
+  
+            <button type="submit">로그인</button>
+          </form>
+          <form style="display: none;">
+            <label for="tel">휴대폰 번호</label>
+            <input type="tel" id="tel" name="tel" placeholder="휴대폰 번호 입력">
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw2" name="pw2" placeholder="비밀번호 입력">
+  
+            <button type="submit">로그인</button>
+          </form>
+        </div>
 
-        <form>
-          <label for="email">이메일</label>
-          <input type="email" id="email" name="email" placeholder="이메일 입력">
-          <label for="pw">비밀번호</label>
-          <input type="password" id="pw" name="pw" placeholder="비밀번호 입력">
-
-          <button type="submit">로그인</button>
-        </form>
       </section>
 
       <section>
@@ -100,7 +110,7 @@
 
       <div class="gnb">
         <ul>
-          <li class="menu" onclick="toggleMenu()"><img src="images/menu.svg" alt="menu">
+          <li class="menu"><img onclick="toggleMenu()" src="images/menu.svg" alt="menu">
             <div class="mega">
               <div class="sub">
                 <h2>크루즈</h2>
@@ -182,9 +192,13 @@
             <div class="country">
               <input type="text" placeholder="지역을 입력해주세요.">
             </div>
-            <div class="check">
-              <input type="date" value="체크인"> <!--안나오잖아요 썜!!!!!-->
-              <input type="date" placeholder="체크아웃">
+            <div class="check1">
+              <span>체크인</span>
+              <input type="date" value="">
+            </div>
+            <div class="check2">
+              <span>체크인</span>
+              <input type="date" value="">
             </div>
             <div class="people">
               <img src="images/인원아이콘.png" alt="인원">
@@ -461,12 +475,28 @@
   <script>
     /*로그인 모달창*/
     const login = document.querySelector("#login");
+    
     function popup() {
       login.style.display = "block"
-    }
+    } 
     function pClose() {
       login.style.display = "none"
     }
+
+    const tabs = document.querySelectorAll(".tab");
+    const tabContent = document.querySelectorAll(".tab-content > form");
+
+    tabs.forEach((tab, index) => 
+    tab.addEventListener("click",function(){
+      //console.log(index)
+      tabs.forEach(tab => tab.classList.remove("active"));
+      tab.classList.add("active");
+
+      tabContent.forEach(form => form.style.display = "none")
+      tabContent[index].style.display= "block";
+    })
+  )
+
 
     /*top-btn*/
     const topBtn = document.querySelector(".top-btn");
@@ -482,9 +512,21 @@
 
     /* 전체메뉴*/
     const mega = document.querySelector(".mega");
-      function toggleMenu(){
-        mega.classList.toggle("open");
+    const menuBtn = document.querySelector(".menu");
+
+    function toggleMenu(){
+      mega.classList.toggle("open");
+    }
+    
+    window.addEventListener("click",(e) => {
+      const isClickInside = mega.contains(e.target);//메뉴 내부 클릭 여부
+      const isClickMenuBtn = menuBtn.contains(e.target);//메뉴버튼 클릭
+      // console.log(isClickInside, isClickMenuBtn)
+
+      if (!isClickInside && !isClickMenuBtn) {
+        mega.classList.remove("open");
       }
+    })
   </script>
 </body>
 

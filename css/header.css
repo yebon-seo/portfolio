@@ -104,14 +104,14 @@ header >.container > .gnb > ul >.menu {
     gap: 80px;
     margin: auto;
     background-color: #ffffff;
-    outline: 1px solid #ccc; /*위에는 뺄 수 없나영?*/
+    outline: 1px solid #ccc; 
     border-radius: 0 0 20px 20px;
-    /* border-top: none; */
     opacity: 0;
-    display: none;
+    visibility: hidden;
     position: absolute;
-    top: 70px;
+    top: 71px;
     z-index: 10;
+    transition: opacity 0.3s;
 }
 .menu > .mega > .sub h2{
     font-weight: 700;
@@ -161,6 +161,6 @@ header > .container > .gnb > ul .right-tab {
 }
 
 .mega.open {
-    display: block;
+    visibility: visible;
     opacity: 1;
 }
