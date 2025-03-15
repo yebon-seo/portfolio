@@ -10,26 +10,63 @@
 
 main{
   min-width: 1280px;
-  background: url(../images/main.svg) no-repeat center/cover;
 }
 main > .container {
-  width: 1280px;
   height: 750px;
-  padding: 0 45px;
-  margin: auto;
+}
+main > .container > #banner {
+  width: 100vw;
+  min-height: 600px;
+  background: #aadcff; /*지우기*/
+  transition: background-color 1s ease-in-out; /*슬라이드 시 배경색 변경*/
   position: relative;
 }
-main > .container #banner .txt {
+main > .container > #banner > .auto-slide {
+  width: 1280px;
+  padding: 0 45px;
+  margin: auto;
+  
+}
+#banner > .auto-slide > .slide > img {
+  width: 1190px;
+  height: 750px;
+  object-fit: cover;
+  position: absolute;
+  left: calc(50% - 900px); 
+}
+#banner > .auto-slide > .slide .txt {
   text-align: end;
   padding-top: 91px;
   user-select: none; /*복사금지*/
+  position: absolute;
+  left: calc(50% + 595px); /* 부모 기준으로 중앙에서 오른쪽 끝 정렬 */
+  transform: translateX(-100%); /* 오른쪽 정렬 유지 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  max-width: 100%; /* 글씨가 부모 요소 밖으로 나가지 않게 제한 */
 }
-main > .container #banner .txt .btn {
+
+#banner .slide > .txt > h2 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;/*js로 바꿔야해*/
+}
+#banner .slide > .txt > h1 {
+  font-size: 90px;
+  font-weight: 700;
+  color: #155781;/*js로 바꿔야해*/
+}
+
+/*버튼*/
+
+#banner > .btn {
+  width: 1190px;
   display: flex;
+  gap: 30px; /*버튼 사이의 간격*/
+  /* align-items: center; */
   justify-content: flex-end;
-  margin-top: 230px;
+  padding-top: 520px;
 }
-main > .container #banner .txt .btn button {
+#banner > .btn > button {
   background-color: #fff;
   width: 18px;
   line-height: 18px;
@@ -40,19 +77,7 @@ main > .container #banner .txt .btn button {
   text-align: center;
   cursor: pointer;
 }
-main > .container #banner .txt p {
-  color: #333;
-}
-main > .container #banner h2 {
-  font-size: 60px;
-  font-weight: 700;
-  color: #fff;
-}
-main > .container #banner h1 {
-  font-size: 90px;
-  font-weight: 700;
-  color: #155781;
-}
+
 
 /*select-box*/
 #select-box {
@@ -61,9 +86,14 @@ main > .container #banner h1 {
   background-color: #fff;
   border-radius: 20px;
   padding: 60px 44px;
-  box-shadow: 0 8px 20px rgb(51, 51, 51,0.1);
+  box-shadow: 0 4px 10px rgb(51, 51, 51,0.1);
   position: absolute;
-  bottom: -129px;
+  /* bottom: -129px; */
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(600px + 129px); /* 이미지 높이 + 129px 아래 */
+
+
 }
 #select-box .hotel {
   height: 70%;
@@ -379,7 +409,7 @@ main > .container #banner h1 {
 
 
 /*광고배너*/
-#ad-banner {
+#ad-banner { 
   min-width: 1280px;
   height: 300px;
   margin-top: 140px;

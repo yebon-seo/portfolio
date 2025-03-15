@@ -30,7 +30,7 @@ header {
   min-width: 1280px;
   border-bottom: 1px solid #bbb;
 }
-.container {
+header > .container {
     width: 1280px;
     padding: 0 45px; /*안쪽 여백*/
     margin: auto;
@@ -113,8 +113,9 @@ header >.container > .gnb > ul >.menu {
 
 /*메가메뉴 css*/
 .menu > .mega {
-    width: 1190px;
-    height: 194px;
+    width: 100%;
+    max-width: 1190px;
+    /* height: 194px; */
     padding: 40px 95px;
     display: flex;
     gap: 80px;
@@ -145,12 +146,15 @@ header >.container > .gnb > ul >.menu {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: space-between; /* 항목 간격 균등 */
 }
 .menu > .mega > .sub a{
     color: #333;
     font-size: 16px;
     display: block;
-    width: 120px;
+    width: 110px;
+    min-width: 100px; /* 최소 크기 유지 */
+    line-height: 30px;
 }
 /*hover시 이벤트*/
 .menu > .mega > .sub a:hover{
@@ -169,6 +173,7 @@ header > .container > .gnb li img {
     height: 25px;
     object-fit: cover;
     display: block;
+    cursor: pointer;
 }
 header > .container > .gnb > ul .right-tab {
     margin-left: auto; /*오른쪽 정렬*/
@@ -179,4 +184,10 @@ header > .container > .gnb > ul .right-tab {
 .mega.open {
     visibility: visible;
     opacity: 1;
+}
+
+@media (max-width: 1400px) {
+    .menu > .mega {
+        gap: 40px; /* 작은 화면에서는 간격 축소 */
+    }
 }
